@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Portal</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #4facfe, #6a5acd);
+        }
+
+        .container {
+            width: 360px;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus {
+            border-color: #4facfe;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #4facfe;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #358de0;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 18px;
+            font-weight: bold;
+        }
+
+        .demo {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">🎓</div>
+
+        <h1>Student Login</h1>
+        <p class="subtitle">Student Login Portal</p>
+
+        <form id="loginForm">
+
+            <label for="username">Student ID</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter Student ID"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter Password"
+                required
+            >
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <div class="message" id="message"></div>
+
+        <div class="demo">
+            Demo Student ID: <b>student123</b><br>
+            Demo Password: <b>12345</b>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const message = document.getElementById("message");
+
+            if (username === "student123" && password === "12345") {
+
+                message.style.color = "green";
+                message.innerHTML = "✓ Login Successful!";
+
+                setTimeout(function() {
+                    window.location.href = "dashboard.html";
+                }, 1000);
+
+            } else {
+
+                message.style.color = "red";
+                message.innerHTML = "✗ Invalid Student ID or Password.";
+
+            }
+        });
+    </script>
+
+</body>
+</html>
